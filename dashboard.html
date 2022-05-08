@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Blons</title>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap" rel="stylesheet"> 
+    <style>
+        :root {
+            --bg1: #11100F;
+            --bg2: #211D1D;
+            --bg3: #2C2826;
+            --bgS: #252120;
+            --button: #82542C;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 539.2px auto;
+        }
+
+        .button {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: large;
+            color: var(--text);
+            background-color: var(--button);
+            border:none;
+            padding: 5px 15px;
+            border-radius: 3px;
+            box-shadow: 0 0 8px var(--shadow);
+            display: block;
+            width: 250px;
+            margin: 10px auto;
+            margin-bottom: 0;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            filter: brightness(1.33) saturate(1.2);
+            text-decoration: underline dotted;
+            cursor: pointer;
+        }
+
+        a, p {
+            margin: 0;
+            padding: 10px;
+            padding-bottom: 0;
+            font-family: 'Fira Sans Condensed', sans-serif;
+            color: var(--link);
+            display: list-item;
+            margin-left: 30px;
+        }
+
+        p {
+            color: var(--text);
+            display: block;
+            margin-left: 0px;
+            font-family: 'Fira Mono', monospace;
+            font-size: small;
+        }
+
+        nav > a {
+            padding: 0;
+            display: inline;
+        }
+
+        h3 {
+            margin: 0;
+            padding: 10px;
+            padding-bottom: 0;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+        }
+
+        .bgs {
+            background-color: var(--bgS);
+        }
+
+        .textbox {
+            min-height: 200px;
+            width: 519.2px;
+            margin: 10px;
+            background-color: var(--bgS);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/index.html" id="logo"></a>
+        <a href="/dashboard.html" id="title">Dashboard</a>
+        <a id="separator" class="navbar locked">TD 6</a>
+        <a class="navbar locked">TD 5</a>
+        <a class="navbar locked">Other</a>
+    </nav>
+    <main>
+        <div>
+            <h1>Blons</h1>
+            <div class="textbox">
+                <p>
+                    GENERIC DETAILS<br>
+                    ================================================================<br>
+                    site_url ................ blons.github.io<br>
+                    site_ver ................ alpha_(ɑ) 1<br>
+                    github_user ............. https://github.com/blons<br><br>
+                    SOURCES<br>
+                    ================================================================<br>
+                    http://topper64.co.uk/nk/btd6/rounds/<br>
+                    https://www.spriters-resource.com/fullview/128124/<br>
+                </p>
+            </div>
+            <a href="/status.txt" class="button">Status.txt</a>
+            <a onclick="respond()" class="button">Test JS</a>
+        </div>
+        <div class="bgs">
+            <h2>Links</h2>
+            <h3>Current</h3>
+            <a href="/dashboard.html">dashboard</a>
+            <h3>Visible</h3>
+            <a href="/index.html">index</a>
+            <h3>Hidden</h3>
+            <a href="/404.html">404</a>
+            <a href="/debug.html">debug</a>
+            <a href="/img/index.html">img/index</a>
+            <a href="/placeholder.html">placeholder</a>
+        </div>
+    </main>
+    <script src="/span.js"></script>
+</body>
+</html>
