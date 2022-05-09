@@ -1,13 +1,13 @@
 PLANNED, PLACEHOLDER, IN_PROGRESS, WORKING, UP_TO_DATE, COMPLETE, BROKEN, REMOVED
 
 dashboard  ......................  WORKING  .........  2
-index  ..........................  PLACEHOLDER  .....  2 3
-debug  ..........................  UP_TO_DATE  ......  2
-404  ............................  UP_TO_DATE  ......  2
-placeholder  ....................  UP_TO_DATE  ......  2
+index  ..........................  UP_TO_DATE  ......  2 3 4
+debug  ..........................  WORKING  .........  2
+404  ............................  WORKING  .........  2
+placeholder  ....................  WORKING  .........  2
 img/index  ......................  WORKING  .........  2
 td6/index  ......................  PLANNED
-td6/index/regular/1  ............  PLANNED
+td6/index/regular/1  ............  WORKING  .........  2 3 4
 td6/index/regular/2  ............  PLANNED
 td6/index/regular/3  ............  PLANNED
 td6/index/regular/4  ............  PLANNED
@@ -23,4 +23,6 @@ td5/index/regular/4  ............  PLANNED
 
 1: Incorrect paths
 2: Incomplete navbar
-3: Incorrect title
+3: Incomplete footer
+4: Incomplete content
+5: Incorrect title

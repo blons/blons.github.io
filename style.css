@@ -1,12 +1,11 @@
 /* Generic */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Fira+Sans+Condensed:wght@300&display=swap');
-
 :root {
     --bg1: #19171E;
     --bg2: #2f2b3b;
     --bg3: #43384b;
     --text: white;
+    --locked: #625f64;
     --link: aquamarine;
     --shadow: black;
     --navheight: 60px;
@@ -38,6 +37,10 @@ nav {
     position: fixed;
     display: flex;
     align-items: center;
+}
+
+nav > a {
+    text-decoration: none;
 }
 
 #logo {
@@ -79,6 +82,7 @@ nav > a {
 
 .locked {
     cursor: not-allowed;
+    color: var(--locked);
 }
 
 /* Body */
@@ -102,8 +106,19 @@ h1, h2 {
     font-weight: 700;
 }
 
-h1, h2, h3, a {
+h1, h2, h3, a, p {
     color: var(--text);
+}
+
+p {
+    font-size: large;
+    margin: 10px 10px 0 10px;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    color: var(--text);
+}
+
+a {
+    color: var(--link);
 }
 
 .list {
@@ -122,6 +137,7 @@ h1, h2, h3, a {
     border-radius: 6px;
     box-shadow: 0 0 6px var(--bg1);
     background: #E55B5B;
+    background-size: 300px;
 }
 
 .item * {
@@ -218,7 +234,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 30px;
 }
 
 footer > a {
@@ -277,6 +293,7 @@ footer > a {
 
     .item {
         height: 125px;
+        background-size: 350px;
     }
 
     .item > img {
@@ -291,6 +308,7 @@ footer > a {
 
     .item {
         height: 150px;
+        background-size: 400px;
     }
 
     .item > img {
@@ -305,6 +323,10 @@ footer > a {
 
     #separator {
         margin-left: 0;
+    }
+
+    footer {
+        gap: 20px;
     }
 }
 

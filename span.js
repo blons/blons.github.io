@@ -44,21 +44,27 @@ function createImg(style, classlist) {
     const img = document.createElement('img');
     if (zeppelins.includes(style) && classlist.contains('fortified') == false) {
         img.src = '/img/zeppelin.png';
+        img.alt = 'zeppelin';
     }
     else if (zeppelins.includes(style) && classlist.contains('fortified')) {
         img.src = '/img/fortified_zeppelin.png';
+        img.alt = 'fortified zeppelin';
     }
     else if (classlist.contains('fortified') && classlist.contains('heart') == false) {
         img.src = '/img/fortified_balloon.png';
+        img.alt = 'fortified balloon';
     }
     else if (classlist.contains('heart') && classlist.contains('fortified') == false) {
         img.src = '/img/heart_balloon.png';
+        img.alt = 'regrow balloon';
     }
     else if (classlist.contains('heart') && classlist.contains('fortified')) {
         img.src = '/img/fortified_heart_balloon.png';
+        img.alt = 'fortified regrow balloon';
     }
     else {
         img.src = '/img/balloon.png';
+        img.alt = 'balloon';
     }
     return img
 }
