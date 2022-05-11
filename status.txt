@@ -1,11 +1,11 @@
 PLANNED, LINKED, PLACEHOLDER, IN_PROGRESS, WORKING, UP_TO_DATE, COMPLETE, BROKEN, REMOVED
 
-dashboard  ......................  WORKING  .........  2 H
-index  ..........................  UP_TO_DATE  ......  2 3 4
-debug  ..........................  WORKING  .........  2 H
-404  ............................  WORKING  .........  2
-placeholder  ....................  WORKING  .........  2 H
-img/index  ......................  WORKING  .........  2 H
+dashboard  ......................  WORKING  .........  2 6 H
+index  ..........................  WORKING  .........  2 6 3 4
+debug  ..........................  WORKING  .........  2 6 H
+404  ............................  WORKING  .........  2 6
+placeholder  ....................  WORKING  .........  2 6 H
+img/index  ......................  WORKING  .........  2 6 H
 td6/index  ......................  LINKED  ..........  -
 td6/index/regular/1  ............  WORKING  .........  2 3 4
 td6/index/regular/2  ............  LINKED  ..........  -
@@ -26,5 +26,6 @@ td5/index/regular/4  ............  PLANNED
 3: Incomplete footer
 4: Incomplete content
 5: Incorrect title
+6: Missing go to top button
 H: Inaccessable
 -: Nonexistant

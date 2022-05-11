@@ -248,6 +248,58 @@ footer > a {
     color: var(--text);
 }
 
+/* Extra */
+
+.gallery > img {
+    margin-left: 10px;
+    margin-right: auto;
+}
+
+.detail {
+    color: var(--bg3);
+}
+
+#scrollbutton {
+    display: none;
+    position: fixed;
+    padding: 0;
+    top: 80px;
+    right: calc(50% - 15px);
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: var(--bg3);
+    border: 0;
+    cursor: pointer;
+    font-size: large;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    text-align: center;
+    color: var(--text);
+    box-shadow: 0 0 8px var(--shadow);
+}
+
+#scrollbutton > span {
+    padding-top: 3px;
+}
+
+@keyframes popup {
+    from {top: 40px; opacity: 1; visibility: visible;}
+    to {top: 80px; opacity: 1; visibility: visible;}
+}
+
+.popup {
+    animation: popup 50ms ease-out;
+}
+
+@keyframes popdown {
+    from {top: 80px; opacity: 1; visibility: visible;}
+    to {top: 40px; opacity: 0; visibility: hidden;}
+}
+
+.popdown {
+    animation: popdown 100ms ease-in;
+}
+
 /* Resizing */
 
 @media only screen and (max-width: 190px) {
@@ -328,15 +380,4 @@ footer > a {
     footer {
         gap: 20px;
     }
-}
-
-/* Extra */
-
-.gallery > img {
-    margin-left: 10px;
-    margin-right: auto;
-}
-
-.detail {
-    color: var(--bg3);
 }
