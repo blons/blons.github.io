@@ -20,14 +20,14 @@ function scrollState() {
         scrollbutton.classList.remove('popdown');
         setTimeout(function(){scrollbutton.style.display = 'block';}, 50);
         lock = true;
-        setTimeout(function(){lock = false;}, 100);
+        setTimeout(function(){lock = false;}, 750);
     } else if (lock == false){
         // scrollbutton.style.display = 'none';
         scrollbutton.classList.add('popdown');
         scrollbutton.classList.remove('popup');
         setTimeout(function(){scrollbutton.style.display = 'none';}, 100);
         lock = true;
-        setTimeout(function(){lock = false;}, 150);
+        setTimeout(function(){lock = false;}, 100);
     }
     oldScroll = sc;
 }

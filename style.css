@@ -8,7 +8,9 @@
     --locked: #625f64;
     --link: aquamarine;
     --shadow: black;
+    --red: #E55B5B;
     --navheight: 60px;
+    --tilemin: 100px;
 }
 
 body {
@@ -98,27 +100,41 @@ main {
     flex-direction: column;
 }
 
-h1, h2 {
+main * {
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-weight: 300;
+    color: var(--text);
+    font-size: large;
+}
+
+h1, h2, .detail {
     margin: 0;
     padding: 10px;
     padding-bottom: 0;
     font-family: 'DM Sans', sans-serif;
     font-weight: 700;
+    font-size: xx-large;
 }
 
-h1, h2, h3, a, p {
-    color: var(--text);
+h2, .detail {
+    font-size: x-large;
+}
+
+.detail {
+    color: var(--bg3);
 }
 
 p {
-    font-size: large;
     margin: 10px 10px 0 10px;
-    font-family: 'Fira Sans Condensed', sans-serif;
-    color: var(--text);
 }
 
 a {
     color: var(--link);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline dotted;
 }
 
 .list {
@@ -130,13 +146,15 @@ a {
 
 .item {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
+    align-items: center;
+    gap: 10px;
     width: 100%;
-    height: 100px;
+    height: 60px;
     border-radius: 6px;
     box-shadow: 0 0 6px var(--bg1);
-    background: #E55B5B;
+    background: var(--bg3);
     background-size: 300px;
 }
 
@@ -149,16 +167,23 @@ a {
     font-size: medium;
     text-align: center;
     margin: 0;
-    font-family: 'Fira Sans Condensed', sans-serif;
+    margin-right: 15px;
 }
 
 .item > img {
-    width: 40px;
-    margin: 0 auto;
-    margin-bottom: 8px;
+    /* height: 40px; */
+    margin: 0;
+    margin-left: 15px;
+    color: var(--red);
+}
+
+.first {
+    outline: solid 1px var(--red);
 }
 
 /* Special cases */
+
+/* #E55B5B
 
 .blue {
     filter: hue-rotate(240deg);
@@ -223,7 +248,7 @@ a {
 
 .camo {
     background-image: url('img/bg_camo.png');
-}
+} */
 
 /* Footer */
 
@@ -255,10 +280,6 @@ footer > a {
     margin-right: auto;
 }
 
-.detail {
-    color: var(--bg3);
-}
-
 #scrollbutton {
     display: none;
     position: fixed;
@@ -276,6 +297,24 @@ footer > a {
     text-align: center;
     color: var(--text);
     box-shadow: 0 0 8px var(--shadow);
+}
+
+#warning {
+    display: none;
+    position: fixed;
+    padding: 0;
+    bottom: 20px;
+    right: 20px;
+    width: 250px;
+    height: fit-content;
+    background-color: var(--red);
+    box-shadow: 0 0 8px var(--shadow);
+    border-radius: 6px;
+    padding: 10px;
+}
+
+.first:hover > #warning {
+    display: block;
 }
 
 #scrollbutton > span {
@@ -306,6 +345,10 @@ footer > a {
     #logo {
         width: 0;
     }
+
+    .first:hover > #warning {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 350px) {
@@ -314,61 +357,51 @@ footer > a {
     }
 }
 
-@media only screen and (min-width: calc(50px*2 + 30px)) {
-    .list > * {
-        flex: 0 0 calc((100% - 10px) / 2);
+@media only screen and (max-width: 530px) {
+    #warning {
+        width: calc(100% - 60px);
     }
 }
 
-@media only screen and (min-width: calc(50px*3 + 40px)) {
+@media only screen and (min-width: calc(110px*2 + 30px)) {
     .list > * {
-        flex: 0 0 calc((100% - 20px) / 3);
+        width: calc((100% - 10px) / 2);
     }
 }
 
-@media only screen and (min-width: calc(50px*4 + 50px)) {
+@media only screen and (min-width: calc(110px*3 + 40px)) {
     .list > * {
-        flex: 0 0 calc((100% - 30px) / 4);
+        width: calc((100% - 20px) / 3);
     }
 }
 
-@media only screen and (min-width: calc(50px*5 + 60px)) {
+@media only screen and (min-width: calc(120px*4 + 50px)) {
     .list > * {
-        flex: 0 0 calc((100% - 40px) / 5);
+        width: calc((100% - 30px) / 4);
     }
 }
 
-@media only screen and (min-width: calc(60px*6 + 70px)) {
+@media only screen and (min-width: calc(120px*5 + 60px)) {
     .list > * {
-        flex: 0 0 calc((100% - 50px) / 6);
-    }
-
-    .item {
-        height: 125px;
-        background-size: 350px;
-    }
-
-    .item > img {
-        width: 60px;
+        width: calc((100% - 40px) / 5);
     }
 }
 
-@media only screen and (min-width: calc(80px*8 + 90px)) {
+@media only screen and (min-width: calc(120px*6 + 70px)) {
     .list > * {
-        flex: 0 0 calc((100% - 70px) / 8);
-    }
-
-    .item {
-        height: 150px;
-        background-size: 400px;
-    }
-
-    .item > img {
-        width: 80px;
+        width: calc((100% - 50px) / 6);
     }
 }
 
 @media only screen and (min-width: 890px) {
+    .list > * {
+        width: calc((100% - 61px) / 7);
+    }
+
+    .item {
+        background-size: 400px;
+    }
+
     nav > a:last-child {
         margin-right: 0;
     }

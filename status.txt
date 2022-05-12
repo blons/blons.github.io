@@ -1,16 +1,17 @@
-PLANNED, LINKED, PLACEHOLDER, IN_PROGRESS, WORKING, UP_TO_DATE, COMPLETE, BROKEN, REMOVED
+PLANNED, LINKED, PLACEHOLDER, IN_PROGRESS, WORKING, UP_TO_DATE, COMPLETE, BROKEN, CANCELLED, REMOVED, MOVED
 
 dashboard  ......................  WORKING  .........  2 6 H
 index  ..........................  WORKING  .........  2 6 3 4
 debug  ..........................  WORKING  .........  2 6 H
 404  ............................  WORKING  .........  2 6
 placeholder  ....................  WORKING  .........  2 6 H
-img/index  ......................  WORKING  .........  2 6 H
-td6/index  ......................  LINKED  ..........  -
-td6/index/regular/1  ............  WORKING  .........  2 3 4
-td6/index/regular/2  ............  LINKED  ..........  -
-td6/index/regular/3  ............  PLANNED
-td6/index/regular/4  ............  PLANNED
+img/index  ......................  REMOVED
+td6/index  ......................  PLANNED
+td6/index/regular  ..............  IN_PROGRESS  .....  2 3 4
+td6/index/regular/1  ............  MOVED
+td6/index/regular/2  ............  CANCELLED
+td6/index/regular/3  ............  CANCELLED
+td6/index/regular/4  ............  CANCELLED
 td6/index/abr/1  ................  PLANNED
 td6/index/abr/2  ................  PLANNED
 td6/index/abr/3  ................  PLANNED
@@ -28,4 +29,4 @@ td5/index/regular/4  ............  PLANNED
 5: Incorrect title
 6: Missing go to top button
 H: Inaccessable
--: Nonexistant
+-: Nonexistent

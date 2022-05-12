@@ -40,32 +40,81 @@ function isColor(str, original) {
     return false
 }
 
+// function createImg(style, classlist) {
+//     const img = document.createElement('img');
+//     if (zeppelins.includes(style) && classlist.contains('fortified') == false) {
+//         img.src = '/img/zeppelin.png';
+//         img.alt = 'zeppelin';
+//     }
+//     else if (zeppelins.includes(style) && classlist.contains('fortified')) {
+//         img.src = '/img/fortified_zeppelin.png';
+//         img.alt = 'fortified zeppelin';
+//     }
+//     else if (classlist.contains('fortified') && classlist.contains('heart') == false) {
+//         img.src = '/img/fortified_balloon.png';
+//         img.alt = 'fortified balloon';
+//     }
+//     else if (classlist.contains('heart') && classlist.contains('fortified') == false) {
+//         img.src = '/img/heart_balloon.png';
+//         img.alt = 'regrow balloon';
+//     }
+//     else if (classlist.contains('heart') && classlist.contains('fortified')) {
+//         img.src = '/img/fortified_heart_balloon.png';
+//         img.alt = 'fortified regrow balloon';
+//     }
+//     else {
+//         img.src = '/img/balloon.png';
+//         img.alt = 'balloon';
+//     }
+//     return img
+// }
+
+// function createText(text) {
+//     const h3 = document.createElement('h3');
+//     h3.textContent = text;
+//     return h3
+// }
+
+// let tiles = document.getElementsByClassName('item')
+// for (let key in tiles) {
+//     let tile = tiles[key]
+//     let classlist = tile.classList
+//     if (isNumeric(key)) {
+//         tile.appendChild(createImg(classlist[1], classlist))
+//         tile.appendChild(createText(titles[classlist[1]]))
+//         tile.appendChild(createText(classlist[2]))
+//         if (isColor(classlist[1], 'black')) {
+//             if (classlist.contains('camo')) {
+//                 tile.setAttribute('style', "background-image: url('/img/bg_camo_black.png')");
+//             }
+//             else {
+//                 tile.setAttribute('style', "background-color: #242424");
+//             }
+//         }
+//         else if (isColor(classlist[1], 'zebra') && classlist.contains('camo')) {
+//             tile.setAttribute('style', "background-image: url('/img/bg_camo_zebra.png')");
+//         }
+//         else if (isColor(classlist[1], 'rainbow') && classlist.contains('camo')) {
+//             tile.setAttribute('style', "background-image: url('/img/bg_camo_rainbow.png')");
+//         }
+//     }
+// }
+
 function createImg(style, classlist) {
     const img = document.createElement('img');
-    if (zeppelins.includes(style) && classlist.contains('fortified') == false) {
-        img.src = '/img/zeppelin.png';
-        img.alt = 'zeppelin';
-    }
-    else if (zeppelins.includes(style) && classlist.contains('fortified')) {
-        img.src = '/img/fortified_zeppelin.png';
-        img.alt = 'fortified zeppelin';
-    }
-    else if (classlist.contains('fortified') && classlist.contains('heart') == false) {
-        img.src = '/img/fortified_balloon.png';
-        img.alt = 'fortified balloon';
-    }
-    else if (classlist.contains('heart') && classlist.contains('fortified') == false) {
-        img.src = '/img/heart_balloon.png';
-        img.alt = 'regrow balloon';
-    }
-    else if (classlist.contains('heart') && classlist.contains('fortified')) {
-        img.src = '/img/fortified_heart_balloon.png';
-        img.alt = 'fortified regrow balloon';
-    }
-    else {
-        img.src = '/img/balloon.png';
-        img.alt = 'balloon';
-    }
+    let extra = '';
+    if (classlist.contains('fortified')) {
+        extra += '_f';
+    };
+    if (classlist.contains('camo')) {
+        extra += '_c';
+    };
+    if (classlist.contains('heart')) {
+        extra += '_r';
+    };
+    let local = '/img/balloon/' + style + extra + '.png'; 
+    img.src = local;
+    img.alt = '?';
     return img
 }
 
@@ -81,21 +130,7 @@ for (let key in tiles) {
     let classlist = tile.classList
     if (isNumeric(key)) {
         tile.appendChild(createImg(classlist[1], classlist))
-        tile.appendChild(createText(titles[classlist[1]]))
+        // tile.appendChild(createText(titles[classlist[1]]))
         tile.appendChild(createText(classlist[2]))
-        if (isColor(classlist[1], 'black')) {
-            if (classlist.contains('camo')) {
-                tile.setAttribute('style', "background-image: url('/img/bg_camo_black.png')");
-            }
-            else {
-                tile.setAttribute('style', "background-color: #242424");
-            }
-        }
-        else if (isColor(classlist[1], 'zebra') && classlist.contains('camo')) {
-            tile.setAttribute('style', "background-image: url('/img/bg_camo_zebra.png')");
-        }
-        else if (isColor(classlist[1], 'rainbow') && classlist.contains('camo')) {
-            tile.setAttribute('style', "background-image: url('/img/bg_camo_rainbow.png')");
-        }
     }
 }
