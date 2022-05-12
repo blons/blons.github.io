@@ -14,7 +14,7 @@ window.onscroll = function() {scrollState()}
 
 function scrollState() {
     let sc = window.scrollY;
-    if (sc > 300 && sc < oldScroll && lock == false) {
+    if (sc > 500 && sc < oldScroll && lock == false) {
         // scrollbutton.style.display = 'block';
         scrollbutton.classList.add('popup');
         scrollbutton.classList.remove('popdown');
@@ -28,6 +28,10 @@ function scrollState() {
         setTimeout(function(){scrollbutton.style.display = 'none';}, 100);
         lock = true;
         setTimeout(function(){lock = false;}, 100);
+    } else if (sc < 300){
+        scrollbutton.classList.add('popdown');
+        scrollbutton.classList.remove('popup');
+        setTimeout(function(){scrollbutton.style.display = 'none';}, 100);
     }
     oldScroll = sc;
 }
