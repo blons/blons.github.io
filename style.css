@@ -296,7 +296,7 @@ footer > a {
     font-family: 'Fira Sans Condensed', sans-serif;
     text-align: center;
     color: var(--text);
-    box-shadow: 0 0 8px var(--shadow);
+    box-shadow: 0 0 6px var(--bg1);
 }
 
 #warning {
@@ -308,7 +308,7 @@ footer > a {
     width: 250px;
     height: fit-content;
     background-color: var(--red);
-    box-shadow: 0 0 8px var(--shadow);
+    box-shadow: 0 0 6px var(--bg1);
     border-radius: 6px;
     padding: 10px;
 }
