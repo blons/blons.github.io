@@ -152,7 +152,7 @@ nav > a {
     z-index: 2;
     border-radius: 6px;
     box-shadow: 0 0 var(--soft-shadow) var(--shadow-soft);
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     outline: solid var(--hcborder) var(--bg3);
 }
@@ -204,11 +204,15 @@ nav > a {
 }
 
 .hideselector {
-    opacity: 0;
+    display: none;
 }
 
 .showselector {
-    opacity: 1;
+    display: flex;
+}
+
+#menubutton {
+    display: none;
 }
 
 /* Body */
@@ -401,17 +405,19 @@ footer > a {
 /* Resizing */
 
 @media only screen and (max-width: 190px) {
-    #logo {
-        width: 0;
-    }
-
     .first:hover > #warning {
         display: none;
     }
 }
 
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 270px) {
     .navbar {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 290px) {
+    #themeicon {
         display: none;
     }
 }
@@ -423,6 +429,70 @@ footer > a {
 
     #themeselector {
         width: calc(100% - 40px);
+    }
+}
+
+/* @media only screen and (max-width: 400px) {
+    nav {
+        height: 100%;
+        width: 75%;
+        flex-direction: column;
+        align-items: flex-start;
+        display: none;
+    }
+
+    #title, nav > a {
+        margin: 0;
+        margin-left: 20px;
+        margin-top: 10px;
+        font-size: x-large;
+    }
+
+    #title {
+        font-size: xx-large;
+    }
+
+    #logo {
+        display: none;
+    }
+
+    #separator {
+        margin-left: 20px;
+    }
+
+    #themebutton {
+        margin-top: auto;
+        margin-bottom: 10px;
+    }
+
+    #themeselector {
+        width: calc(100vw - 60px);
+        left: 30px;
+        bottom: calc((100vh - 200px) / 2);
+        top: auto;
+    }
+
+    #menubutton {
+        width: 100%;
+        height: var(--navheight);
+        background-color: var(--bg3);
+        box-shadow: 0 0 var(--main-shadow) var(--shadow);
+        z-index: 999;
+        position: fixed;
+        display: flex;
+        align-items: center;
+    }
+
+    #menubutton > span {
+        margin-left: 20px;
+        color: var(--title);
+        font-size: xx-large;
+    }
+} */
+
+@media only screen and (max-width: 400px) {
+    #title {
+        display: none;
     }
 }
 
@@ -473,8 +543,8 @@ footer > a {
         margin-left: 0;
     }
 
-    #themeselector {
-        left: 20px;
+    #themebutton {
+        margin-left: auto;
     }
 
     footer {
