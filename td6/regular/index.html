@@ -12,14 +12,34 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Fira+Mono&family=Fira+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body>
+<body class="dark">
     <nav>
         <a href="/" id="logo"></a>
         <a href="/" id="title">Blons</a>
         <a id="separator" class="navbar locked">TD 6</a>
         <a class="navbar locked">TD 5</a>
         <a class="navbar locked">Other</a>
+        <a id="themebutton" class="navbar theme">
+            <span class="material-icons">
+                dark_mode
+            </span>
+        </a>
+        <div id="themeselector" class="hideselector">
+            <button id="closemenu">
+                Close menu
+            </button>
+            <button id="darktheme">
+                Dark theme
+            </button>
+            <button id="lighttheme">
+                Light theme
+            </button>
+            <button id="contrasttheme">
+                High contrast theme
+            </button>
+        </div>
     </nav>
+    <script src="/dark.js"></script>
     <main>
         <h1>TD 6 - Regular Rounds</h1>
         <h2>Round 1 <span class="detail">(20)</span></h2>

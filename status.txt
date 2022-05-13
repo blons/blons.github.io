@@ -1,10 +1,10 @@
 PLANNED, LINKED, PLACEHOLDER, IN_PROGRESS, WORKING, UP_TO_DATE, COMPLETE, BROKEN, CANCELLED, REMOVED, MOVED
 
-dashboard  ......................  WORKING  .........  2 6 H
+dashboard  ......................  BROKEN  ..........  2 6 H
 index  ..........................  WORKING  .........  2 6 3 4
-debug  ..........................  WORKING  .........  2 6 H
-404  ............................  WORKING  .........  2 6
-placeholder  ....................  WORKING  .........  2 6 H
+debug  ..........................  BROKEN  ..........  2 6 H
+404  ............................  BROKEN  ..........  2 6
+placeholder  ....................  BROKEN  ..........  2 6 H
 img/index  ......................  REMOVED
 td6/index  ......................  PLANNED
 td6/index/regular  ..............  IN_PROGRESS  .....  2 3 4

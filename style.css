@@ -1,16 +1,65 @@
 /* Generic */
 
 :root {
+    --navheight: 60px;
+    --tilemin: 100px;
+}
+
+.dark {
     --bg1: #19171E;
     --bg2: #2f2b3b;
     --bg3: #43384b;
+    --item: #43384b;
     --text: white;
+    --title: white;
     --locked: #625f64;
-    --link: aquamarine;
+    --link: #7F9AAC;
     --shadow: black;
+    --shadow-soft: #19171E;
     --red: #E55B5B;
-    --navheight: 60px;
-    --tilemin: 100px;
+    --detail: #43384b;
+    --main-shadow: 8px;
+    --soft-shadow: 6px;
+    --icon-filter: none;
+    --hcborder: none;
+}
+
+.light {
+    --bg1: #ccc;
+    --bg2: #eee;
+    --bg3: #d7c2e5;
+    --item: white;
+    --text: #545454;
+    --title: #545454;
+    --locked: #625f64;
+    --link: #466478;
+    --shadow: black;
+    --shadow-soft: grey;
+    --red: #E55B5B;
+    --detail: #bbb;
+    --main-shadow: 8px;
+    --soft-shadow: 6px;
+    --icon-filter: brightness(0.333);
+    --hcborder: none;
+}
+
+.contrast {
+    --bg1: white;
+    --bg2: white;
+    --bg3: #19171E;
+    --item: white;
+    --text: black;
+    --title: white;
+    --locked: #f55;
+    --link: #466478;
+    --shadow: black;
+    --shadow-soft: grey;
+    --red: #E55B5B;
+    --detail: #444;
+    --main-shadow: 0px;
+    --soft-shadow: 0px;
+    --icon-filter: none;
+    --hcborder: 2px;
 }
 
 body {
@@ -34,7 +83,7 @@ nav {
     width: 100%;
     height: var(--navheight);
     background-color: var(--bg3);
-    box-shadow: 0 0 8px var(--shadow);
+    box-shadow: 0 0 var(--main-shadow) var(--shadow);
     z-index: 999;
     position: fixed;
     display: flex;
@@ -50,6 +99,7 @@ nav > a {
     width: 40px;
     margin: 0 20px;
     background-image: url(img/logo.png);
+    filter: var(--icon-filter);
     background-size: 40px;
 }
 
@@ -64,7 +114,7 @@ nav > a {
     font-size: x-large;
     margin: 0 40px 0 0;
     text-decoration: none;
-    color: var(--text);
+    color: var(--title);
 }
 
 #title:hover, nav > a:hover {
@@ -75,7 +125,8 @@ nav > a {
     font-size: large;
     margin: 5px 20px 0 0;
     font-family: 'Fira Sans Condensed', sans-serif;
-    color: var(--text);
+    color: var(--title);
+    cursor: pointer;
 }
 
 #separator {
@@ -87,6 +138,79 @@ nav > a {
     color: var(--locked);
 }
 
+#themebutton {
+    user-select: none;
+}
+
+#themeselector {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    top: calc(20px + var(--navheight));
+    right: 20px;
+    background-color: var(--bg3);
+    z-index: 2;
+    border-radius: 6px;
+    box-shadow: 0 0 var(--soft-shadow) var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    outline: solid var(--hcborder) var(--bg3);
+}
+
+#themeselector * {
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-weight: 300;
+    color: var(--text);
+    font-size: large;
+}
+
+#themeselector > button {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    cursor: pointer;
+}
+
+#themeselector > button > p {
+    margin: 0;
+    vertical-align: middle;
+}
+
+#closemenu {
+    background-color: #E55B5B;
+    color: var(--text);
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+}
+
+#darktheme {
+    background-color: #43384b;
+    color: white;
+}
+
+#lighttheme {
+    background-color: #eee;
+    color: #545454;
+}
+
+#contrasttheme {
+    background-color: white;
+    color: black;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.hideselector {
+    opacity: 0;
+}
+
+.showselector {
+    opacity: 1;
+}
+
 /* Body */
 
 main {
@@ -94,10 +218,11 @@ main {
     width: min(890px, 100%);
     margin: auto;
     background-color: var(--bg2);
-    box-shadow: 0 0 8px var(--shadow);
+    box-shadow: 0 0 var(--main-shadow) var(--shadow);
     min-height: calc(100vh - var(--navheight));
     display: flex;
     flex-direction: column;
+    outline: solid var(--hcborder) var(--bg3);
 }
 
 main * {
@@ -121,7 +246,7 @@ h2, .detail {
 }
 
 .detail {
-    color: var(--bg3);
+    color: var(--detail);
 }
 
 p {
@@ -153,9 +278,10 @@ a:hover {
     width: 100%;
     height: 60px;
     border-radius: 6px;
-    box-shadow: 0 0 6px var(--bg1);
-    background: var(--bg3);
+    box-shadow: 0 0 var(--soft-shadow) var(--shadow-soft);
+    background: var(--item);
     background-size: 300px;
+    outline: solid var(--hcborder) var(--bg3);
 }
 
 .item * {
@@ -181,79 +307,10 @@ a:hover {
     outline: solid 1px var(--red);
 }
 
-/* Special cases */
-
-/* #E55B5B
-
-.blue {
-    filter: hue-rotate(240deg);
-}
-
-.green {
-    filter: hue-rotate(120deg) saturate(0.75) brightness(1.25);
-}
-
-.yellow {
-    filter: hue-rotate(60deg) saturate(0.75) brightness(1.66);
-}
-
-.pink {
-    filter: hue-rotate(330deg);
-}
-
-.purple {
-    filter: hue-rotate(270deg);
-}
-
-.white {
-    filter: saturate(0) brightness(1.66);
-}
-
-.black {
-    filter: saturate(0);
-}
-
-.lead {
-    filter: saturate(0);
-}
-
-.zebra {
-    background-image: url('img/bg_zebra.png');
-}
-
-.rainbow {
-    background-image: url('img/bg_rainbow.png');
-}
-
-.ceramic {
-    filter: hue-rotate(25deg);
-}
-
-.moab {
-    filter: hue-rotate(240deg);
-}
-
-.zomg {
-    filter: hue-rotate(120deg) saturate(0.75) brightness(1.25);
-}
-
-.ddt {
-    background-image: url('img/bg_camo.png');
-    filter: saturate(0);
-}
-
-.bad {
-    filter: hue-rotate(270deg);
-}
-
-.camo {
-    background-image: url('img/bg_camo.png');
-} */
-
 /* Footer */
 
 footer {
-    background-color: var(--bg3);
+    background-color: var(--item);
     height: 40px;
     margin-top: auto;
     display: flex;
@@ -289,14 +346,15 @@ footer > a {
     width: 30px;
     height: 30px;
     border-radius: 20px;
-    background-color: var(--bg3);
+    background-color: var(--item);
     border: 0;
     cursor: pointer;
     font-size: large;
     font-family: 'Fira Sans Condensed', sans-serif;
     text-align: center;
     color: var(--text);
-    box-shadow: 0 0 6px var(--bg1);
+    box-shadow: 0 0 var(--soft-shadow) var(--shadow-soft);
+    outline: solid var(--hcborder) var(--bg3);
 }
 
 #warning {
@@ -308,9 +366,10 @@ footer > a {
     width: 250px;
     height: fit-content;
     background-color: var(--red);
-    box-shadow: 0 0 6px var(--bg1);
+    box-shadow: 0 0 var(--soft-shadow) var(--shadow-soft);
     border-radius: 6px;
     padding: 10px;
+    outline: solid var(--hcborder) var(--bg3);
 }
 
 .first:hover > #warning {
@@ -361,6 +420,10 @@ footer > a {
     #warning {
         width: calc(100% - 60px);
     }
+
+    #themeselector {
+        width: calc(100% - 40px);
+    }
 }
 
 @media only screen and (min-width: calc(110px*2 + 30px)) {
@@ -408,6 +471,10 @@ footer > a {
 
     #separator {
         margin-left: 0;
+    }
+
+    #themeselector {
+        left: 20px;
     }
 
     footer {
