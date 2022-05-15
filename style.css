@@ -21,45 +21,54 @@
     --main-shadow: 8px;
     --soft-shadow: 6px;
     --icon-filter: none;
-    --hcborder: none;
+    --border: none;
+    --hcborder: 0px;
+    --blackfilter: none;
+    --font: 'Fira Sans Condensed';
 }
 
 .light {
     --bg1: #ccc;
     --bg2: #eee;
-    --bg3: #d7c2e5;
+    --bg3: #43384b;
     --item: white;
     --text: #545454;
-    --title: #545454;
+    --title: white;
     --locked: #625f64;
     --link: #466478;
     --shadow: black;
     --shadow-soft: grey;
-    --red: #E55B5B;
+    --red: #E57272;
     --detail: #bbb;
     --main-shadow: 8px;
     --soft-shadow: 6px;
-    --icon-filter: brightness(0.333);
-    --hcborder: none;
+    --icon-filter: none;
+    --border: none;
+    --hcborder: 0px;
+    --blackfilter: none;
+    --font: 'Fira Sans Condensed';
 }
 
 .contrast {
-    --bg1: white;
-    --bg2: white;
-    --bg3: #19171E;
-    --item: white;
-    --text: black;
+    --bg1: black;
+    --bg2: black;
+    --bg3: black;
+    --item: black;
+    --text: white;
     --title: white;
-    --locked: #f55;
-    --link: #466478;
-    --shadow: black;
-    --shadow-soft: grey;
-    --red: #E55B5B;
-    --detail: #444;
+    --locked: red;
+    --link: yellow;
+    --shadow: white;
+    --shadow-soft: white;
+    --red: red;
+    --detail: white;
     --main-shadow: 0px;
     --soft-shadow: 0px;
     --icon-filter: none;
+    --border: white;
     --hcborder: 2px;
+    --blackfilter: brightness(2.0);
+    --font: 'DM Sans';
 }
 
 body {
@@ -88,6 +97,7 @@ nav {
     position: fixed;
     display: flex;
     align-items: center;
+    outline: solid var(--hcborder) var(--border);
 }
 
 nav > a {
@@ -101,6 +111,7 @@ nav > a {
     background-image: url(img/logo.png);
     filter: var(--icon-filter);
     background-size: 40px;
+    font-size: 0;
 }
 
 #logo:hover {
@@ -124,7 +135,7 @@ nav > a {
 nav > a {
     font-size: large;
     margin: 5px 20px 0 0;
-    font-family: 'Fira Sans Condensed', sans-serif;
+    font-family: var(--font), sans-serif;
     color: var(--title);
     cursor: pointer;
 }
@@ -154,11 +165,11 @@ nav > a {
     box-shadow: 0 0 var(--soft-shadow) var(--shadow-soft);
     /* display: flex; */
     flex-direction: column;
-    outline: solid var(--hcborder) var(--bg3);
+    outline: solid var(--hcborder) var(--border);
 }
 
 #themeselector * {
-    font-family: 'Fira Sans Condensed', sans-serif;
+    font-family: var(--font), sans-serif;
     font-weight: 300;
     color: var(--text);
     font-size: large;
@@ -180,7 +191,7 @@ nav > a {
 }
 
 #closemenu {
-    background-color: #E55B5B;
+    background-color: var(--red);
     color: var(--text);
     border-top-right-radius: 6px;
     border-top-left-radius: 6px;
@@ -197,8 +208,8 @@ nav > a {
 }
 
 #contrasttheme {
-    background-color: white;
-    color: black;
+    background-color: black;
+    color: white;
     border-bottom-right-radius: 6px;
     border-bottom-left-radius: 6px;
 }
@@ -226,11 +237,11 @@ main {
     min-height: calc(100vh - var(--navheight));
     display: flex;
     flex-direction: column;
-    outline: solid var(--hcborder) var(--bg3);
+    outline: solid var(--hcborder) var(--border);
 }
 
 main * {
-    font-family: 'Fira Sans Condensed', sans-serif;
+    font-family: var(--font), sans-serif;
     font-weight: 300;
     color: var(--text);
     font-size: large;
@@ -285,7 +296,7 @@ a:hover {
     box-shadow: 0 0 var(--soft-shadow) var(--shadow-soft);
     background: var(--item);
     background-size: 300px;
-    outline: solid var(--hcborder) var(--bg3);
+    outline: solid var(--hcborder) var(--border);
 }
 
 .item * {
@@ -297,18 +308,21 @@ a:hover {
     font-size: medium;
     text-align: center;
     margin: 0;
-    margin-right: 15px;
 }
 
-.item > img {
+.item img {
     /* height: 40px; */
     margin: 0;
-    margin-left: 15px;
     color: var(--red);
+    /* width: 27%; */
 }
 
 .first {
-    outline: solid 1px var(--red);
+    outline: solid max(var(--hcborder), 1px) var(--red);
+}
+
+.black img {
+    filter: var(--blackfilter);
 }
 
 /* Footer */
@@ -326,12 +340,52 @@ footer {
 footer > a {
     font-size: large;
     margin: 0;
-    font-family: 'Fira Sans Condensed', sans-serif;
+    font-family: var(--font), sans-serif;
     color: var(--link);
 }
 
 .disabled {
     color: var(--text);
+}
+
+/* Floatmenu */
+
+.floatmenu {
+    display: none;
+    position: fixed;
+    padding: 0;
+    bottom: 20px;
+    right: 20px;
+    width: fit-content;
+    height: fit-content;
+    background-color: var(--item);
+    box-shadow: 0 0 var(--soft-shadow) var(--shadow-soft);
+    border-radius: 6px;
+    padding: 10px;
+    outline: solid var(--hcborder) var(--border);
+}
+
+.item:hover > .floatmenu {
+    display: flex;
+    flex-direction: column;
+}
+
+.floattitlediv {
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+
+.floattitle {
+    margin: 0 0 0 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: x-large;
+}
+
+.floattext {
+    margin-top: 10px;
+    white-space: pre;
 }
 
 /* Extra */
@@ -354,30 +408,11 @@ footer > a {
     border: 0;
     cursor: pointer;
     font-size: large;
-    font-family: 'Fira Sans Condensed', sans-serif;
+    font-family: var(--font), sans-serif;
     text-align: center;
     color: var(--text);
     box-shadow: 0 0 var(--soft-shadow) var(--shadow-soft);
-    outline: solid var(--hcborder) var(--bg3);
-}
-
-#warning {
-    display: none;
-    position: fixed;
-    padding: 0;
-    bottom: 20px;
-    right: 20px;
-    width: 250px;
-    height: fit-content;
-    background-color: var(--red);
-    box-shadow: 0 0 var(--soft-shadow) var(--shadow-soft);
-    border-radius: 6px;
-    padding: 10px;
-    outline: solid var(--hcborder) var(--bg3);
-}
-
-.first:hover > #warning {
-    display: block;
+    outline: solid var(--hcborder) var(--border);
 }
 
 #scrollbutton > span {
@@ -404,12 +439,6 @@ footer > a {
 
 /* Resizing */
 
-@media only screen and (max-width: 190px) {
-    .first:hover > #warning {
-        display: none;
-    }
-}
-
 @media only screen and (max-width: 270px) {
     .navbar {
         display: none;
@@ -423,10 +452,6 @@ footer > a {
 }
 
 @media only screen and (max-width: 530px) {
-    #warning {
-        width: calc(100% - 60px);
-    }
-
     #themeselector {
         width: calc(100% - 40px);
     }

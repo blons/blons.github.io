@@ -1,4 +1,4 @@
-:root {
+/* :root {
     --bg1: #11100F;
     --bg2: #211D1D;
     --bg3: #2C2826;
@@ -75,4 +75,36 @@ h3 {
     width: 519.2px;
     margin: 10px;
     background-color: var(--bgS);
+} */
+
+body {
+    background-color: #11100F;
+}
+
+p, h1, h2, h3, a {
+    display: list-item;
+    font-family: 'Fira Mono', monospace;
+    font-size: small;
+    list-style: none;
+    color: white;
+}
+
+a:link {
+    color: aquamarine;
+}
+
+a:visited {
+    color: aquamarine;
+}
+
+.cancelled {
+    color: dimgrey;
+}
+
+.broken {
+    color: red;
+}
+
+.planned {
+    color: burlywood;
 }
