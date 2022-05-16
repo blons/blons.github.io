@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Blons</title>
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
-    <!-- <link rel="stylesheet" href="/style.css"> -->
     <link rel="stylesheet" href="/dashboard/style.css">
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Fira+Mono&family=Fira+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -78,6 +77,16 @@
             <a href="/404.html">404</a>
             <a href="/special/debug/">special/debug</a>
         </div>
+        <div>
+            <h2>Themes</h2>
+            <a href="javascript:dark()">Dark</a>
+            <a href="javascript:light()">Light</a>
+            <a href="javascript:contrast()">Contrast</a>
+            <a href="javascript:mothership()">Mothership</a>
+            <h3>Current theme:</h3>
+            <p id="themetext">theme_text</p>
+        </div>
+        <script src="/dashboard/dashboard.js"></script>
     </main>
 </body>
 </html>

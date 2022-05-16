@@ -60,12 +60,6 @@ function isColor(str, original) {
     return false;
 }
 
-// function createSpan() {
-//     const span = document.createElement('span');
-//     span.className = 'wrapper';
-//     return span;
-// }
-
 function createImg(style, classlist) {
     const img = document.createElement('img');
     let extra = '';
@@ -106,7 +100,9 @@ function createHoverMenu(style) {
     title.className = 'floattitlediv';
     const img = title.appendChild(quickImg(style));
     img.className = 'floatimg';
-    img.style.width = img.naturalWidth * 0.27 + 'px';
+    img.onload = () => {
+        img.style.width = img.naturalWidth * 0.27 + 'px';
+    };
     const titlestr = title.appendChild(createText(titles[style]));
     titlestr.className = 'floattitle';
     const text = main.appendChild(document.createElement('div'));
@@ -128,8 +124,11 @@ for (let key in tiles) {
     if (isNumeric(key)) {
         // const span = tile.appendChild(createSpan());
         const img = tile.appendChild(createImg(classlist[1], classlist));
-        img.style.width = img.naturalWidth * 0.27 + 'px';
+        img.style.width = '0px';
+        img.onload = () => {
+            img.style.width = img.naturalWidth * 0.27 + 'px';
+        };
         tile.appendChild(createText(classlist[2]));
         tile.appendChild(createHoverMenu(classlist[1], classlist));
-    }
+    };
 }

@@ -56,10 +56,10 @@
     --item: black;
     --text: white;
     --title: white;
-    --locked: red;
+    --locked: blue;
     --link: yellow;
-    --shadow: white;
-    --shadow-soft: white;
+    --shadow: none;
+    --shadow-soft: none;
     --red: red;
     --detail: white;
     --main-shadow: 0px;
@@ -69,6 +69,22 @@
     --hcborder: 2px;
     --blackfilter: brightness(2.0);
     --font: 'DM Sans';
+}
+
+.mothership {
+    --bg1: #040001;
+    --bg2: #040001;
+    --bg3: #040001;
+    --item: #040001;
+    --text: #fbf7c8;
+    --title: #fbf7c8;
+    --detail: #fbf7c8;
+    --border: #fbf7c8;
+    --locked: #f02e25;
+    --link: #f02e25;
+    --red: #f02e25;
+    --hcborder: 1px;
+    --icon-filter: sepia(1) saturate(3.6);
 }
 
 body {
@@ -149,6 +165,10 @@ nav > a {
     color: var(--locked);
 }
 
+.locked:hover {
+    text-decoration: underline dashed;
+}
+
 #themebutton {
     user-select: none;
 }
@@ -163,7 +183,6 @@ nav > a {
     z-index: 2;
     border-radius: 6px;
     box-shadow: 0 0 var(--soft-shadow) var(--shadow-soft);
-    /* display: flex; */
     flex-direction: column;
     outline: solid var(--hcborder) var(--border);
 }
@@ -274,7 +293,7 @@ a {
 }
 
 a:hover {
-    text-decoration: underline dotted;
+    text-decoration: underline;
 }
 
 .list {
@@ -289,7 +308,6 @@ a:hover {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 10px;
     width: 100%;
     height: 60px;
     border-radius: 6px;
@@ -308,13 +326,12 @@ a:hover {
     font-size: medium;
     text-align: center;
     margin: 0;
+    margin-left: 5px;
 }
 
 .item img {
-    /* height: 40px; */
     margin: 0;
     color: var(--red);
-    /* width: 27%; */
 }
 
 .first {
@@ -344,10 +361,6 @@ footer > a {
     color: var(--link);
 }
 
-.disabled {
-    color: var(--text);
-}
-
 /* Floatmenu */
 
 .floatmenu {
@@ -363,6 +376,7 @@ footer > a {
     border-radius: 6px;
     padding: 10px;
     outline: solid var(--hcborder) var(--border);
+    z-index: 999;
 }
 
 .item:hover > .floatmenu {
@@ -457,65 +471,7 @@ footer > a {
     }
 }
 
-/* @media only screen and (max-width: 400px) {
-    nav {
-        height: 100%;
-        width: 75%;
-        flex-direction: column;
-        align-items: flex-start;
-        display: none;
-    }
-
-    #title, nav > a {
-        margin: 0;
-        margin-left: 20px;
-        margin-top: 10px;
-        font-size: x-large;
-    }
-
-    #title {
-        font-size: xx-large;
-    }
-
-    #logo {
-        display: none;
-    }
-
-    #separator {
-        margin-left: 20px;
-    }
-
-    #themebutton {
-        margin-top: auto;
-        margin-bottom: 10px;
-    }
-
-    #themeselector {
-        width: calc(100vw - 60px);
-        left: 30px;
-        bottom: calc((100vh - 200px) / 2);
-        top: auto;
-    }
-
-    #menubutton {
-        width: 100%;
-        height: var(--navheight);
-        background-color: var(--bg3);
-        box-shadow: 0 0 var(--main-shadow) var(--shadow);
-        z-index: 999;
-        position: fixed;
-        display: flex;
-        align-items: center;
-    }
-
-    #menubutton > span {
-        margin-left: 20px;
-        color: var(--title);
-        font-size: xx-large;
-    }
-} */
-
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 420px) {
     #title {
         display: none;
     }
