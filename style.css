@@ -1,5 +1,9 @@
 /* Generic */
 
+/* * {
+    transition: background-color .2s, color .2s, box-shadow .2s, outline .2s;
+} */
+
 :root {
     --navheight: 60px;
     --tilemin: 100px;
@@ -17,6 +21,7 @@
     --shadow: black;
     --shadow-soft: #19171E;
     --red: #E55B5B;
+    --purple: #a25be5;
     --detail: #43384b;
     --main-shadow: 8px;
     --soft-shadow: 6px;
@@ -39,6 +44,7 @@
     --shadow: black;
     --shadow-soft: grey;
     --red: #E57272;
+    --purple: #8b72e5;
     --detail: #bbb;
     --main-shadow: 8px;
     --soft-shadow: 6px;
@@ -47,6 +53,54 @@
     --hcborder: 0px;
     --blackfilter: none;
     --font: 'Fira Sans Condensed';
+}
+
+.carbon {
+    --bg1: #111;
+    --bg2: #222;
+    --bg3: #333;
+    --item: #333;
+    --text: #bbb;
+    --title: #bbb;
+    --locked: #444;
+    --link: #7F9AAC;
+    --shadow: black;
+    --shadow-soft: #111;
+    --red: #c74747;
+    --purple: #a25be5;
+    --detail: #444;
+    --main-shadow: 8px;
+    --soft-shadow: 6px;
+    --icon-filter: none;
+    --border: none;
+    --hcborder: 0px;
+    --blackfilter: none;
+    --font: 'Fira Sans Condensed';
+    --icon-filter: brightness(0.8);
+}
+
+.forest {
+    --bg1: #2b3339;
+    --bg2: #323c41;
+    --bg3: #3a454a;
+    --item: #3a454a;
+    --text: #d3c6aa;
+    --title: #d3c6aa;
+    --locked: #7a8478;
+    --link: #7fbbb3;
+    --shadow: #25282b;
+    --shadow-soft: #2b3339;
+    --red: #e67e80;
+    --purple: #d699b6;
+    --detail: #3a454a;
+    --main-shadow: 8px;
+    --soft-shadow: 6px;
+    --icon-filter: none;
+    --border: none;
+    --hcborder: 0px;
+    --blackfilter: none;
+    --font: 'Fira Sans Condensed';
+    --icon-filter: sepia(1) saturate(5.5) hue-rotate(-45deg);
 }
 
 .contrast {
@@ -61,6 +115,7 @@
     --shadow: none;
     --shadow-soft: none;
     --red: red;
+    --purple: rgb(174, 0, 255);
     --detail: white;
     --main-shadow: 0px;
     --soft-shadow: 0px;
@@ -83,6 +138,14 @@
     --locked: #f02e25;
     --link: #f02e25;
     --red: #f02e25;
+    --purple: #108374;
+    --shadow: none;
+    --shadow-soft: none;
+    --main-shadow: 0px;
+    --soft-shadow: 0px;
+    --icon-filter: none;
+    --blackfilter: brightness(2.0);
+    --font: 'DM Sans';
     --hcborder: 1px;
     --icon-filter: sepia(1) saturate(3.6);
 }
@@ -109,7 +172,7 @@ nav {
     height: var(--navheight);
     background-color: var(--bg3);
     box-shadow: 0 0 var(--main-shadow) var(--shadow);
-    z-index: 999;
+    z-index: 2;
     position: fixed;
     display: flex;
     align-items: center;
@@ -171,20 +234,20 @@ nav > a {
 
 #themebutton {
     user-select: none;
+    margin-right: 20px;
 }
 
 #themeselector {
-    position: absolute;
-    width: 300px;
-    height: 200px;
-    top: calc(20px + var(--navheight));
-    right: 20px;
-    background-color: var(--bg3);
-    z-index: 2;
+    width: 600px;
+    height: fit-content;
+    background-color: var(--bg2);
+    z-index: 6;
+    display: flex;
     border-radius: 6px;
     box-shadow: 0 0 var(--soft-shadow) var(--shadow-soft);
     flex-direction: column;
     outline: solid var(--hcborder) var(--border);
+    align-items: center;
 }
 
 #themeselector * {
@@ -194,43 +257,165 @@ nav > a {
     font-size: large;
 }
 
-#themeselector > button {
-    width: 100%;
-    height: 25%;
+#themeselector h2 {
+    padding: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: xx-large;
+}
+
+#themeselector > div {
+    flex-grow: 1;
+    display: flex;
+    height: 280px;
+    flex-wrap: wrap;
+    width: calc(100% - 20px);
+    overflow-y: auto;
+}
+
+#themeselector button {
     display: flex;
     justify-content: center;
     align-items: center;
     border: 0;
     cursor: pointer;
+    outline: solid var(--hcborder) var(--border);
 }
 
-#themeselector > button > p {
+#themeselector > div button {
+    width: calc(33.33% - 20px);
+    height: calc(50% - 20px);
+    flex-direction: column;
+    height: 120px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: var(--item);
+    box-shadow: 0 0 var(--soft-shadow) var(--shadow-soft);
+}
+
+.display {
+    width: min(50%, 82px);
+    height: 50%;
+    margin-bottom: 10px;
+    border-radius: 6px 6px 5px 5px;
+    background-color: var(--disp_bg);
+    box-shadow: 0 0 var(--soft-shadow) var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    outline: solid var(--disp_b_style) var(--disp_b_col);
+}
+
+.mininav {
+    height: 20%;
+    width: 100%;
+    background-color: var(--disp_nav);
+    border-radius: 5px 5px 0 0;
+    outline: solid var(--disp_b_style) var(--disp_b_col);
+    z-index: 7;
+}
+
+.minimain {
+    padding-top: 10%;
+    width: 66.66%;
+    margin: auto;
+    background-color: var(--disp_main);
+    flex-grow: 1;
+    border-left: solid var(--disp_b_style) var(--disp_b_col);
+    border-right: solid var(--disp_b_style) var(--disp_b_col);
+}
+
+.minitext {
+    height: 20%;
+    width: 80%;
+    margin: 0 0 0 10%;
+    background-color: var(--disp_text);
+    border-radius: 5px;
+}
+
+#themeselector button > p {
     margin: 0;
     vertical-align: middle;
+}
+
+#themeselector button a {
+    display: inline;
+    color: var(--link);
+}
+
+#overlay {
+    background-color: #00000088;
+    float: left;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 5;
+    align-items: center;
+    justify-content: center;
 }
 
 #closemenu {
     background-color: var(--red);
     color: var(--text);
-    border-top-right-radius: 6px;
-    border-top-left-radius: 6px;
+    flex: 0 0 50px;
+    width: 100px;
+    margin: 10px;
+    border-radius: 5px;
 }
 
 #darktheme {
-    background-color: #43384b;
-    color: white;
+    --disp_bg: #19171e;
+    --disp_nav: #43384b;
+    --disp_main: #2f2b3b;
+    --disp_text: white;
+    --disp_b_style: none;
+    --disp_b_col: none;
 }
 
 #lighttheme {
-    background-color: #eee;
-    color: #545454;
+    --disp_bg: #ccc;
+    --disp_nav: #43384b;
+    --disp_main: #eee;
+    --disp_text: #545454;
+    --disp_b_style: none;
+    --disp_b_col: none;
 }
 
 #contrasttheme {
-    background-color: black;
-    color: white;
-    border-bottom-right-radius: 6px;
-    border-bottom-left-radius: 6px;
+    --disp_bg: black;
+    --disp_nav: black;
+    --disp_main: black;
+    --disp_text: white;
+    --disp_b_style: 2px;
+    --disp_b_col: white;
+}
+
+#carbontheme {
+    --disp_bg: #111;
+    --disp_nav: #333;
+    --disp_main: #222;
+    --disp_text: #bbb;
+    --disp_b_style: none;
+    --disp_b_col: none;
+}
+
+#foresttheme {
+    --disp_bg: #2b3339;
+    --disp_nav: #3a454a;
+    --disp_main: #323c41;
+    --disp_text: #d3c6aa;
+    --disp_b_style: none;
+    --disp_b_col: none;
+}
+
+#mothershiptheme {
+    --disp_bg: #040001;
+    --disp_nav: #040001;
+    --disp_main: #040001;
+    --disp_text: #fbf7c8;
+    --disp_b_style: 1px;
+    --disp_b_col: #fbf7c8;
 }
 
 .hideselector {
@@ -281,6 +466,22 @@ h2, .detail {
 
 .detail {
     color: var(--detail);
+}
+
+.help {
+    padding: 10px 10px 0 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.dot {
+    height: 25px;
+    width: 25px;
+    box-shadow: 0 0 var(--soft-shadow) var(--shadow-soft);
+    background-color: var(--item);
+    border-radius: 6px;
+    display: inline-block;
 }
 
 p {
@@ -338,6 +539,10 @@ a:hover {
     outline: solid max(var(--hcborder), 1px) var(--red);
 }
 
+.rush {
+    outline: solid max(var(--hcborder), 1px) var(--purple);
+}
+
 .black img {
     filter: var(--blackfilter);
 }
@@ -376,7 +581,7 @@ footer > a {
     border-radius: 6px;
     padding: 10px;
     outline: solid var(--hcborder) var(--border);
-    z-index: 999;
+    z-index: 4;
 }
 
 .item:hover > .floatmenu {
@@ -453,8 +658,31 @@ footer > a {
 
 /* Resizing */
 
-@media only screen and (max-width: 270px) {
-    .navbar {
+@media only screen and (max-width: 890px) {
+    .display {
+        width: min(50%, 49px);
+        height: 50%;
+        border-radius: 6px;
+    }
+
+    .minimain {
+        padding-top: 15%;
+        width: 100%;
+        border: 0;
+        border-radius: 0 0 5px 5px;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    #themeselector {
+        width: calc(100% - 40px);
+    }
+
+    #themeselector > div button {
+        width: calc(50% - 20px);
+    }
+
+    #title {
         display: none;
     }
 }
@@ -463,16 +691,14 @@ footer > a {
     #themeicon {
         display: none;
     }
-}
 
-@media only screen and (max-width: 530px) {
-    #themeselector {
-        width: calc(100% - 40px);
+    #themeselector > div button {
+        width: calc(100% - 20px);
     }
 }
 
-@media only screen and (max-width: 420px) {
-    #title {
+@media only screen and (max-width: 270px) {
+    .navbar {
         display: none;
     }
 }

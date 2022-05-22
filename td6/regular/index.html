@@ -17,31 +17,85 @@
         <a href="/" id="logo">Title Logo</a>
         <a href="/" id="title">Blons</a>
         <a id="separator" class="navbar" href="/td6">TD 6</a>
-        <a class="navbar locked">TD 5</a>
+        <a class="navbar" href="/td5">TD 5</a>
         <a class="navbar locked">Other</a>
         <a id="themebutton" class="navbar theme">
             <span id="themeicon" class="material-icons-round">
                 contrast
             </span>
         </a>
-        <div id="themeselector" class="hideselector">
+    </nav>
+    <div id="overlay" class="hideselector">
+        <div id="themeselector">
+            <h2 id="themetitle">Themes</h2>
+            <div>
+                <button id="darktheme">
+                    <div class="display">
+                        <div class="mininav"></div>
+                        <div class="minimain">
+                            <div class="minitext"></div>
+                        </div>
+                    </div>
+                    Dark
+                </button>
+                <button id="lighttheme">
+                    <div class="display">
+                        <div class="mininav"></div>
+                        <div class="minimain">
+                            <div class="minitext"></div>
+                        </div>
+                    </div>
+                    Light
+                </button>
+                <button id="carbontheme">
+                    <div class="display">
+                        <div class="mininav"></div>
+                        <div class="minimain">
+                            <div class="minitext"></div>
+                        </div>
+                    </div>
+                    Carbon
+                </button>
+                <button id="foresttheme">
+                    <div class="display">
+                        <div class="mininav"></div>
+                        <div class="minimain">
+                            <div class="minitext"></div>
+                        </div>
+                    </div>
+                    <p>Everforest <a href="https://github.com/sainnhe/everforest">?</a></p>
+                </button>
+                <button id="contrasttheme">
+                    <div class="display">
+                        <div class="mininav"></div>
+                        <div class="minimain">
+                            <div class="minitext"></div>
+                        </div>
+                    </div>
+                    High contrast
+                </button>
+                <button id="mothershiptheme" style="display: none;">
+                    <div class="display">
+                        <div class="mininav"></div>
+                        <div class="minimain">
+                            <div class="minitext"></div>
+                        </div>
+                    </div>
+                    Mothership
+                </button>
+            </div>
             <button id="closemenu">
                 Close menu
             </button>
-            <button id="darktheme">
-                Dark theme
-            </button>
-            <button id="lighttheme">
-                Light theme
-            </button>
-            <button id="contrasttheme">
-                High contrast theme
-            </button>
         </div>
-    </nav>
+    </div>
     <script src="/dark.js"></script>
     <main>
         <h1>TD 6 - Regular Rounds</h1>
+        <div class="help">
+            <span class="dot first"></span> Appearing for the first time
+            <span class="dot rush"></span> Bloon rush
+        </div>
         <h2>Round 1 <span class="detail">(20)</span></h2>
         <div class="list">
             <div class="item red x20 first"></div>
@@ -135,7 +189,7 @@
         </div>
         <h2>Round 18 <span class="detail">(240)</span></h2>
         <div class="list">
-            <div class="item green x80"></div>
+            <div class="item green x80 rush"></div>
         </div>
         <h2>Round 19 <span class="detail">(141)</span></h2>
         <div class="list">
@@ -230,12 +284,12 @@
         <h2>Round 36 <span class="detail">(760)</span></h2>
         <div class="list">
             <div class="item green x20 camo heart"></div>
-            <div class="item pink x140"></div>
+            <div class="item pink x140 rush"></div>
         </div>
         <h2>Round 37 <span class="detail">(1202)</span></h2>
         <div class="list">
             <div class="item white x25"></div>
-            <div class="item white x7 camo"></div>
+            <div class="item white x7 camo rush"></div>
             <div class="item black x25"></div>
             <div class="item lead x15"></div>
             <div class="item zebra x10"></div>
@@ -277,12 +331,12 @@
         </div>
         <h2>Round 44 <span class="detail">(1150)</span></h2>
         <div class="list">
-            <div class="item zebra x50"></div>
+            <div class="item zebra x50 rush"></div>
         </div>
         <h2>Round 45 <span class="detail">(2289)</span></h2>
         <div class="list">
             <div class="item pink x180"></div>
-            <div class="item purple x10 camo"></div>
+            <div class="item purple x10 camo rush"></div>
             <div class="item lead x4 fortified"></div>
             <div class="item rainbow x25"></div>
         </div>
@@ -312,7 +366,7 @@
         </div>
         <h2>Round 50 <span class="detail">(3540)</span></h2>
         <div class="list">
-            <div class="item red x20"></div>
+            <div class="item red x20 rush"></div>
             <div class="item lead x8 fortified"></div>
             <div class="item ceramic x20"></div>
             <div class="item moab x2"></div>
@@ -340,7 +394,7 @@
         </div>
         <h2>Round 55 <span class="detail">(5296)</span></h2>
         <div class="list">
-            <div class="item ceramic x45"></div>
+            <div class="item ceramic x45 rush"></div>
             <div class="item moab x1"></div>
         </div>
         <h2>Round 56 <span class="detail">(2496)</span></h2>
@@ -384,7 +438,7 @@
         <h2>Round 63 <span class="detail">(14413)</span></h2>
         <div class="list">
             <div class="item lead x75"></div>
-            <div class="item ceramic x122"></div>
+            <div class="item ceramic x122 rush"></div>
         </div>
         <h2>Round 64 <span class="detail">(6264)</span></h2>
         <div class="list">
@@ -468,8 +522,8 @@
         <div class="list">
             <div class="item purple x80"></div>
             <div class="item rainbow x150"></div>
-            <div class="item ceramic x75"></div>
-            <div class="item ceramic x72 camo"></div>
+            <div class="item ceramic x75 rush"></div>
+            <div class="item ceramic x72 camo rush"></div>
             <div class="item bfb x1"></div>
         </div>
         <h2>Round 79 <span class="detail">(45804)</span></h2>
@@ -599,7 +653,7 @@
         </div>
         <h2>Round 103 <span class="detail">(379538)</span></h2>
         <div class="list">
-            <div class="item purple x198"></div>
+            <div class="item purple x198 rush"></div>
             <div class="item moab x100"></div>
             <div class="item moab x50  fortified"></div>
             <div class="item zomg x10  fortified"></div>
@@ -623,7 +677,7 @@
         </div>
         <h2>Round 106 <span class="detail">(87768)</span></h2>
         <div class="list">
-            <div class="item ddt x66"></div>
+            <div class="item ddt x66  rush"></div>
             <div class="item ddt x27  fortified"></div>
         </div>
         <h2>Round 107 <span class="detail">(289244)</span></h2>
@@ -663,8 +717,8 @@
         </div>
         <h2>Round 113 <span class="detail">(145716)</span></h2>
         <div class="list">
-            <div class="item ceramic x42  camo"></div>
-            <div class="item ceramic x42  fortified"></div>
+            <div class="item ceramic x42  camo rush"></div>
+            <div class="item ceramic x42  fortified rush"></div>
             <div class="item moab x75  fortified"></div>
             <div class="item bfb x15  fortified"></div>
         </div>
@@ -761,16 +815,16 @@
         </div>
         <h2>Round 129 <span class="detail">(333209)</span></h2>
         <div class="list">
-            <div class="item purple x77  camo"></div>
-            <div class="item lead x77  fortified camo"></div>
-            <div class="item ceramic x77  camo"></div>
+            <div class="item purple x77  camo rush"></div>
+            <div class="item lead x77  fortified camo rush"></div>
+            <div class="item ceramic x77  camo rush"></div>
             <div class="item zomg x7"></div>
             <div class="item zomg x7  fortified"></div>
-            <div class="item ddt x18"></div>
+            <div class="item ddt x18 rush"></div>
         </div>
         <h2>Round 130 <span class="detail">(154944)</span></h2>
         <div class="list">
-            <div class="item moab x84"></div>
+            <div class="item moab x84 rush"></div>
             <div class="item moab x66  fortified"></div>
             <div class="item ddt x48"></div>
             <div class="item ddt x6  fortified"></div>
@@ -781,18 +835,18 @@
         </div>
         <h2>Round 132 <span class="detail">(465784)</span></h2>
         <div class="list">
-            <div class="item purple x200  camo"></div>
-            <div class="item zomg x18"></div>
-            <div class="item zomg x6  fortified"></div>
+            <div class="item purple x200  camo rush"></div>
+            <div class="item zomg x18 rush"></div>
+            <div class="item zomg x6  fortified rush"></div>
         </div>
         <h2>Round 133 <span class="detail">(429308)</span></h2>
         <div class="list">
-            <div class="item moab x27"></div>
-            <div class="item moab x12  fortified"></div>
-            <div class="item bfb x27"></div>
-            <div class="item bfb x12  fortified"></div>
-            <div class="item zomg x9"></div>
-            <div class="item zomg x4  fortified"></div>
+            <div class="item moab x27 rush"></div>
+            <div class="item moab x12  fortified rush"></div>
+            <div class="item bfb x27 rush"></div>
+            <div class="item bfb x12  fortified rush"></div>
+            <div class="item zomg x9 rush"></div>
+            <div class="item zomg x4  fortified rush"></div>
         </div>
         <h2>Round 134 <span class="detail">(146480)</span></h2>
         <div class="list">
@@ -811,9 +865,9 @@
         </div>
         <h2>Round 137 <span class="detail">(405312)</span></h2>
         <div class="list">
-            <div class="item moab x48"></div>
-            <div class="item bfb x24"></div>
-            <div class="item zomg x18"></div>
+            <div class="item moab x48 rush"></div>
+            <div class="item bfb x24 rush"></div>
+            <div class="item zomg x18 rush"></div>
         </div>
         <h2>Round 138 <span class="detail">(138456)</span></h2>
         <div class="list">

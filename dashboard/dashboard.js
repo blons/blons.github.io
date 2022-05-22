@@ -15,6 +15,16 @@ function contrast() {
     texttheme();
 };
 
+function forest() {
+    localStorage.setItem('theme', 'forest');
+    texttheme();
+};
+
+function carbon() {
+    localStorage.setItem('theme', 'carbon');
+    texttheme();
+};
+
 function mothership() {
     localStorage.setItem('theme', 'mothership');
     texttheme();

@@ -5,50 +5,84 @@ const closebutton = document.getElementById('closemenu');
 const darkbutton = document.getElementById('darktheme');
 const lightbutton = document.getElementById('lighttheme');
 const contrastbutton = document.getElementById('contrasttheme');
+const carbonbutton = document.getElementById('carbontheme');
+const forestbutton = document.getElementById('foresttheme');
+const mothershipbutton = document.getElementById('mothershiptheme');
 const theme = localStorage.getItem('theme');
+const special = localStorage.getItem('special');
 const themeicon = document.getElementById('themeicon');
 const menubutton = document.getElementById('menubutton');
 const nav = document.getElementById('nav');
+const overlay = document.getElementById('overlay');
+const title = document.getElementById('themetitle');
+const themelist = ['dark', 'light', 'contrast', 'carbon', 'forest', 'mothership'];
+let count = 1;
 
-if (theme == 'light') {
-    body.classList.replace('dark', 'light');
-};
-
-if (theme == 'contrast') {
-    body.classList.replace('dark', 'contrast');
-};
-
-if (theme == 'mothership') {
-    body.classList.replace('dark', 'contrast');
-    body.classList.add('mothership');
+for (let i in themelist) {
+    if (theme == themelist[i]) {
+        body.classList.replace('dark', themelist[i]);
+    }
 };
 
 darkbutton.onclick = () => {
-    body.classList.remove('light', 'contrast');
-    body.classList.add('dark');
+    body.className = 'dark';
     localStorage.setItem('theme', 'dark');
 };
 
 lightbutton.onclick = () => {
-    body.classList.remove('dark', 'contrast');
-    body.classList.add('light');
+    body.className = 'light';
     localStorage.setItem('theme', 'light');
 };
 
 contrastbutton.onclick = () => {
-    body.classList.remove('dark', 'light');
-    body.classList.add('contrast');
+    body.className = 'contrast';
     localStorage.setItem('theme', 'contrast');
 };
 
+carbonbutton.onclick = () => {
+    body.className = 'carbon';
+    localStorage.setItem('theme', 'carbon');
+};
+
+forestbutton.onclick = () => {
+    body.className = 'forest';
+    localStorage.setItem('theme', 'forest');
+};
+
+mothershipbutton.onclick = () => {
+    body.className = 'mothership';
+    localStorage.setItem('theme', 'mothership');
+};
+
 themebutton.onclick = () => {
-    if (themeselector.classList.contains('hideselector')) {
-        themeselector.classList.replace('hideselector', 'showselector');
+    if (overlay.classList.contains('hideselector')) {
+        overlay.classList.replace('hideselector', 'showselector');
     } else {
-        themeselector.classList.replace('showselector', 'hideselector');
+        overlay.classList.replace('showselector', 'hideselector');
     }
 };
 
 closebutton.onclick = () => {
-    themeselector.classList.replace('showselector', 'hideselector');
+    overlay.classList.replace('showselector', 'hideselector');
+};
+
+title.onclick = () => {
+    count += 1;
+    if (count == 7) {
+        console.log('Developer mode on');
+        localStorage.setItem('special', true);
+    } else {
+        console.log('Developer mode off');
+        localStorage.removeItem('special');
+    }
+};
+
+document.getElementById('overlay').onclick = function(e) {
+    if(e.target == document.getElementById('overlay')) {
+        overlay.classList.replace('showselector', 'hideselector');
+    }
+};
+
+if (special == "true") {
+    mothershipbutton.style = '';
 };

@@ -14,31 +14,81 @@
 </head>
 <body class="dark">
     <nav>
-        <a href="/" id="logo"></a>
+        <a href="/" id="logo">Title Logo</a>
         <a href="/" id="title">Blons</a>
         <a id="separator" class="navbar" href="/td6">TD 6</a>
-        <a class="navbar locked">TD 5</a>
+        <a class="navbar" href="/td5">TD 5</a>
         <a class="navbar locked">Other</a>
         <a id="themebutton" class="navbar theme">
             <span id="themeicon" class="material-icons-round">
                 contrast
             </span>
         </a>
-        <div id="themeselector" class="hideselector">
+    </nav>
+    <div id="overlay" class="hideselector">
+        <div id="themeselector">
+            <h2 id="themetitle">Themes</h2>
+            <div>
+                <button id="darktheme">
+                    <div class="display">
+                        <div class="mininav"></div>
+                        <div class="minimain">
+                            <div class="minitext"></div>
+                        </div>
+                    </div>
+                    Dark
+                </button>
+                <button id="lighttheme">
+                    <div class="display">
+                        <div class="mininav"></div>
+                        <div class="minimain">
+                            <div class="minitext"></div>
+                        </div>
+                    </div>
+                    Light
+                </button>
+                <button id="carbontheme">
+                    <div class="display">
+                        <div class="mininav"></div>
+                        <div class="minimain">
+                            <div class="minitext"></div>
+                        </div>
+                    </div>
+                    Carbon
+                </button>
+                <button id="foresttheme">
+                    <div class="display">
+                        <div class="mininav"></div>
+                        <div class="minimain">
+                            <div class="minitext"></div>
+                        </div>
+                    </div>
+                    <p>Everforest <a href="https://github.com/sainnhe/everforest">?</a></p>
+                </button>
+                <button id="contrasttheme">
+                    <div class="display">
+                        <div class="mininav"></div>
+                        <div class="minimain">
+                            <div class="minitext"></div>
+                        </div>
+                    </div>
+                    High contrast
+                </button>
+                <button id="mothershiptheme" style="display: none;">
+                    <div class="display">
+                        <div class="mininav"></div>
+                        <div class="minimain">
+                            <div class="minitext"></div>
+                        </div>
+                    </div>
+                    Mothership
+                </button>
+            </div>
             <button id="closemenu">
                 Close menu
             </button>
-            <button id="darktheme">
-                Dark theme
-            </button>
-            <button id="lighttheme">
-                Light theme
-            </button>
-            <button id="contrasttheme">
-                High contrast theme
-            </button>
         </div>
-    </nav>
+    </div>
     <script src="/dark.js"></script>
     <main>
         <h1>Debug site</h1>
