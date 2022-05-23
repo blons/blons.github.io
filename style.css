@@ -703,13 +703,13 @@ footer > a {
     }
 }
 
-@media only screen and (min-width: calc(110px*2 + 30px)) {
+@media only screen and (min-width: calc(100px*2 + 30px)) {
     .list > * {
         width: calc((100% - 10px) / 2);
     }
 }
 
-@media only screen and (min-width: calc(110px*3 + 40px)) {
+@media only screen and (min-width: calc(100px*3 + 40px)) {
     .list > * {
         width: calc((100% - 20px) / 3);
     }
