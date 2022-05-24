@@ -1,15 +1,62 @@
-self.addEventListener('install', function(event) {
-    event.waitUntil(
-        caches.open(cacheName).then(function(cache) {
-            return cache.addAll(
-                [
-                    '/style.css',
-                    '/dark.js',
-                    '/top.js',
-                    '/404.html'
-                ]
-            );
-        })
-    );
+const CACHE = "blons";
+
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
+
+const offlineFallbackPage = "/404.html";
+
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "SKIP_WAITING") {
+    self.skipWaiting();
+  }
 });
-  
+
+self.addEventListener('install', async (event) => {
+  event.waitUntil(
+    caches.open(CACHE).then((cache) => 
+      cache.add([
+        '/',
+        '/index.html',
+        '/style.css',
+        '/dark.js',
+        '/span.js',
+        '/span_td5.js',
+        '/top.js',
+        '/img/logo.png',
+        '/img/logo_color.png'
+      ]
+    ))
+  );
+});
+
+if (workbox.navigationPreload.isSupported()) {
+  workbox.navigationPreload.enable();
+}
+
+workbox.routing.registerRoute(
+  new RegExp('/*'),
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: CACHE
+  })
+);
+
+self.addEventListener('fetch', (event) => {
+  if (event.request.mode === 'navigate') {
+    event.respondWith((async () => {
+      try {
+        const preloadResp = await event.preloadResponse;
+
+        if (preloadResp) {
+          return preloadResp;
+        }
+
+        const networkResp = await fetch(event.request);
+        return networkResp;
+      } catch (error) {
+
+        const cache = await caches.open(CACHE);
+        const cachedResp = await cache.match(offlineFallbackPage);
+        return cachedResp;
+      }
+    })());
+  }
+});
