@@ -47,6 +47,15 @@
                     </div>
                     Light
                 </button>
+                <button id="contrasttheme">
+                    <div class="display">
+                        <div class="mininav"></div>
+                        <div class="minimain">
+                            <div class="minitext"></div>
+                        </div>
+                    </div>
+                    High contrast
+                </button>
                 <button id="carbontheme">
                     <div class="display">
                         <div class="mininav"></div>
@@ -65,14 +74,14 @@
                     </div>
                     <p>Everforest <a href="https://github.com/sainnhe/everforest">?</a></p>
                 </button>
-                <button id="contrasttheme">
+                <button id="nordtheme">
                     <div class="display">
                         <div class="mininav"></div>
                         <div class="minimain">
                             <div class="minitext"></div>
                         </div>
                     </div>
-                    High contrast
+                    <p>Nord <a href="https://www.nordtheme.com/">?</a></p>
                 </button>
                 <button id="mothershiptheme" style="display: none;">
                     <div class="display">
@@ -92,6 +101,13 @@
     <script src="/dark.js"></script>
     <main>
         <h1>TD 5 - Regular Rounds</h1>
+        <div id="searchdiv" class="help">
+            <input type="text" id="searchbox">
+            <button id="searchbutton" onclick="search()">Search</button>
+            <button id="resetbutton" onclick="reset()">Clear</button>
+            <span id="currentsearchkeys">Searching for:</span>
+            <span style="text-align: center; width: 100%; animation: color-rotate 3s linear 0ms infinite; color: #E55B5B;">Work in Progress...</span>
+        </div>
         <div class="help">
             <span class="dot first"></span> Appearing for the first time
         </div>
@@ -550,5 +566,6 @@
     </button>
     <script src="/span_td5.js"></script>
     <script src="/top.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

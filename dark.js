@@ -7,6 +7,7 @@ const lightbutton = document.getElementById('lighttheme');
 const contrastbutton = document.getElementById('contrasttheme');
 const carbonbutton = document.getElementById('carbontheme');
 const forestbutton = document.getElementById('foresttheme');
+const nordbutton = document.getElementById('nordtheme');
 const mothershipbutton = document.getElementById('mothershiptheme');
 const theme = localStorage.getItem('theme');
 const special = localStorage.getItem('special');
@@ -15,7 +16,7 @@ const menubutton = document.getElementById('menubutton');
 const nav = document.getElementById('nav');
 const overlay = document.getElementById('overlay');
 const title = document.getElementById('themetitle');
-const themelist = ['dark', 'light', 'contrast', 'carbon', 'forest', 'mothership'];
+const themelist = ['dark', 'light', 'contrast', 'carbon', 'forest', 'nord', 'mothership'];
 let count = 1;
 
 for (let i in themelist) {
@@ -47,6 +48,11 @@ carbonbutton.onclick = () => {
 forestbutton.onclick = () => {
     body.className = 'forest';
     localStorage.setItem('theme', 'forest');
+};
+
+nordbutton.onclick = () => {
+    body.className = 'nord';
+    localStorage.setItem('theme', 'nord');
 };
 
 mothershipbutton.onclick = () => {
